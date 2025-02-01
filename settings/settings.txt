@@ -1,0 +1,107 @@
+/trip_planner_backend
+│── /config
+│   ├── conn.php       # Konekcija sa bazom
+│── /auth
+│   ├── register.php       # Registracija korisnika
+│   ├── login.php          # Login korisnika
+│   ├── logout.php         # Logout korisnika (ako koristimo sesije)
+│   ├── session_check.php  # Provera da li je korisnik ulogovan
+│── /trips
+│   ├── create_trip.php    # Kreiranje putovanja
+│   ├── read_trips.php     # Čitanje putovanja korisnika
+│   ├── update_trip.php    # Ažuriranje putovanja
+│   ├── delete_trip.php    # Brisanje putovanja
+│── /helpers
+│   ├── response.php       # Pomoćna funkcija za formatiranje JSON odgovora
+│   ├── auth_helper.php    # Funkcije za proveru tokena ili sesija
+│── index.php              # Glavna ulazna tačka (ako je potreban API gateway)
+│── README.md              # Opis projekta
+
+
+1. Registracija i Login
+    Registracija korisnika:
+        Funkcija: Korisnici se registruju tako što unesu svoje podatke (ime, email, lozinku).
+        Kako to funkcioniše: Kada korisnik unese podatke i klikne na "Registruj se", aplikacija će:
+        Proveriti da li je email već u bazi.
+        Hashovati lozinku pre nego što je sačuva u bazi.
+        Dodati korisnika u tabelu users.
+    Login korisnika:
+        Funkcija: Korisnici se prijavljuju unoseći email i lozinku.
+        Kako to funkcioniše: Kada korisnik unese svoje podatke i klikne na "Prijavi se", aplikacija će:
+        Proveriti da li postoji korisnik sa unetim email-om.
+        Uporediti unetu lozinku sa hash-ovanom lozinkom u bazi.
+        Ako je prijava uspešna, generiše se sesija za korisnika (ili JWT token) kako bi mogao da pristupa svojim podacima i funkcionalnostima.
+    Logout:
+        Funkcija: Korisnici se odjave sa aplikacije.
+        Kako to funkcioniše: Na klik "Logout", aplikacija će:
+        Uništiti korisničku sesiju ili obrisati JWT token.
+
+
+2. CRUD operacije za Putovanja
+    Kreiranje putovanja:
+        Funkcija: Korisnici mogu da dodaju novo putovanje.
+        Kako to funkcioniše: Kada korisnik popuni formu za putovanje sa podacima kao što su destinacija, datum početka, datum kraja, budžet, i napomene, aplikacija će:
+        Proveriti da li su svi podaci ispravno uneti.
+        Sačuvati putovanje u tabelu trips, povezano sa korisnikom putem user_id.
+        Ako je uspešno, korisnik dobija potvrdu o dodavanju putovanja.
+    Prikaz putovanja:
+        Funkcija: Korisnici mogu da vide listu svojih putovanja.
+        Kako to funkcioniše: Na strani za pregled putovanja:
+        Aplikacija učitava sva putovanja koja pripadaju ulogovanom korisniku (preko user_id).
+        Prikazuje osnovne informacije kao što su destinacija, datum početka i kraja, budžet i napomene.
+    Ažuriranje putovanja:
+        Funkcija: Korisnici mogu da izmenjuju svoje putovanje.
+        Kako to funkcioniše: Ako korisnik želi da menja bilo koji detalj putovanja:
+        Prikazuje formu za izmenu podataka.
+        Nakon što korisnik popuni izmene, aplikacija ažurira podatke u tabeli trips u bazi podataka.
+        Prikazuje korisniku potvrdu o uspešnoj izmeni.
+    Brisanje putovanja:
+        Funkcija: Korisnici mogu da obrišu putovanje koje su prethodno uneli.
+        Kako to funkcioniše: Kada korisnik odluči da obriše putovanje:
+        Potvrđuje da želi da izbriše putovanje.
+        Aplikacija briše zapis iz tabele trips koji je povezan sa user_id.
+        Korisnik dobija potvrdu da je putovanje obrisano.
+
+
+3. Organizacija i Filtriranje Putovanja
+    Filtriranje putovanja:
+        Funkcija: Korisnici mogu filtrirati svoja putovanja prema različitim kriterijumima.
+        Kako to funkcioniše: Korisnici mogu filtrirati putovanja prema:
+        Datumima (na osnovu datuma početka ili završetka).
+        Destinacijama (pretraživanje po imenu destinacije).
+        Budžetu (filtriranje na osnovu budžeta).
+        Kriterijumi filtriranja će biti poslati kao parametri u backend, a rezultati će biti prikazani korisnicima.
+
+
+4. Sigurnost i Validacija
+    Sigurnost lozinki:
+        Funkcija: Lozinke korisnika moraju biti zaštićene.
+        Kako to funkcioniše: Lozinke korisnika se hashuju pre nego što se čuvaju u bazi, što znači da ni administratori ne mogu da vide stvarnu lozinku korisnika.
+    Validacija inputa:
+Funkcija: Svi podaci koje korisnik unese treba da budu validirani.
+        Kako to funkcioniše: Aplikacija proverava:
+        Da li je email validan.
+        Da li su svi obavezni podaci uneseni (npr. za putovanje: destinacija, datumi).
+        Da li su podaci ispravno formatirani (npr. datumi u odgovarajućem formatu).
+    Zaštita od SQL injekcija:
+        Funkcija: Da bi aplikacija bila bezbedna od napada kao što su SQL injekcije, koristićemo pripremljene izjave (prepared statements) prilikom izvršavanja SQL upita.
+
+
+5. Korisnički Interfejs (Frontend)
+    Početna stranica (Home page):
+        Na početnoj stranici korisnicima će biti prikazani osnovni podaci o aplikaciji i opcija za prijavu ili registraciju.
+        Stranica za registraciju/login:
+        Dve forme za unos podataka:
+    Registracija: Polja za unos imena, emaila, lozinke.
+    Login: Polja za unos emaila i lozinke.
+    Stranica za upravljanje putovanjima:
+        Nakon što korisnik bude prijavljen, prikazuje se lista svih putovanja koja je uneo.
+        Svako putovanje može biti uredjeno ili obrisano putem odgovarajućih dugmadi.
+        Stranica za kreiranje/izmenu putovanja:
+        Forma u kojoj korisnik unosi detalje o putovanju (destinacija, datumi, budžet, napomene).
+
+
+6. Sesije i Autentifikacija
+    Sesija: Kada korisnik uspešno login-uje, sesija (ili JWT token) se koristi da bi se identifikovao u svim narednim zahtevima.
+    Provera sesije: Svaki put kada korisnik pristupa funkcionalnostima kao što su dodavanje ili izmena putovanja, aplikacija proverava da li je korisnik ulogovan putem sesije ili tokena.
+
