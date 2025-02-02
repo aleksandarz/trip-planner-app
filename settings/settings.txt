@@ -78,7 +78,7 @@
         Funkcija: Lozinke korisnika moraju biti zaštićene.
         Kako to funkcioniše: Lozinke korisnika se hashuju pre nego što se čuvaju u bazi, što znači da ni administratori ne mogu da vide stvarnu lozinku korisnika.
     Validacija inputa:
-Funkcija: Svi podaci koje korisnik unese treba da budu validirani.
+        Funkcija: Svi podaci koje korisnik unese treba da budu validirani.
         Kako to funkcioniše: Aplikacija proverava:
         Da li je email validan.
         Da li su svi obavezni podaci uneseni (npr. za putovanje: destinacija, datumi).

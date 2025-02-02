@@ -1,5 +1,7 @@
 <?php
-// session_check.php
+
+    require_once __DIR__ . "../config/conn.php";
+    // session_check.php
     session_start(); // Pokreni sesiju
 
     // Provera da li je korisnik ulogovan

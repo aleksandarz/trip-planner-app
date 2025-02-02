@@ -1,9 +1,9 @@
 <?php
     // Inicijalizacija konekcije na bazu koristeći mysqli
-    require_once "../config/conn.php"; 
+    require_once __DIR__ . "../config/conn.php";
 
     // Provera da li je zahtev poslat POST metodom
-    if ($_SERVER['REQUEST_METHOD'] != 'POST') 
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') 
     {
         echo "Podaci moraju biti poslati POST metodom!";
         exit;
@@ -22,17 +22,33 @@
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     // Pripremi i izvrši upit
-    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+    $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
 
-    if ($conn->query($sql) === true) 
+    // Priprema izjave
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt === false) 
+    {
+        die("Greška u pripremi upita: " . $conn->error);
+    }
+    
+    // Bind parametri (s za string, d za decimalni, b za binarne podatke, itd.)
+    $stmt->bind_param("sss", $username, $email, $password);
+    
+    // Skrivanje korisničkog unosa za password pre nego što ga sačuvamo (npr. korišćenje bcrypt za hashiranje)
+    $password = password_hash($password, PASSWORD_BCRYPT);
+    
+    // Izvršenje pripremljenog upita
+    if ($stmt->execute()) 
     {
         echo "Registracija uspešna!";
     } 
-    else 
+    else
     {
-        echo "Greška: " . $sql . "<br>" . $conn->error;
+        echo "Greška: " . $stmt->error;
     }
-
-    $conn->close();
+    
+    // Zatvaranje pripremljene izjave
+    $stmt->close();
     
 ?>

@@ -1,0 +1,107 @@
+/* Global Styles */
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body 
+{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container 
+{
+    display: flex;
+    width: 55vw;
+    height: 65vh;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 25px 25px rgba(0, 0, 0, 0.1);
+}
+
+.left 
+{
+    background-color: #b33f62; /* Roza boja (Wanderlog slična) */
+    color: white;
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.left h2 
+{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.right 
+{
+    width: 66.66%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right h2 
+{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.right label 
+{
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.right input 
+{
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.right input:focus 
+{
+    border-color: #b33f62; /* Roza boja pri fokusu */
+    outline: none;
+}
+
+.register-btn 
+{
+    padding: 12px;
+    background-color: #b33f62; /* Roza boja */
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.75s ease;
+}
+
+.register-btn:hover 
+{
+    background-color: #7b1738; /* Tamnija roza pri hover-u */
+}
+
+.register-btn:active 
+{
+    background-color: #520a21; /* Još tamnija roza pri kliku */
+}

@@ -1,4 +1,6 @@
 <?php
+
+    require_once __DIR__ . "../config/conn.php";
     // Pokreni sesiju
     session_start();
 
@@ -11,7 +13,7 @@
         echo "Logout uspešan!";
     } 
     else
-     {
+    {
         echo "Korisnik nije ulogovan.";
     }
 
