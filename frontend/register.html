@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - TripMate</title>
     <link rel="stylesheet" href="../frontend/css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&display=swap" rel="stylesheet">
@@ -14,24 +17,37 @@
 <body>
     <div class="container">
         <div class="left">
-            <h2>Join TripMate</h2>
+            <h2 class="russian-violet">Join TripMate</h2>
         </div>
         <div class="right">
-            <form action="#" method="POST">
-                <h2>Create an Account</h2>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit" class="register-btn">Register</button>
+            <form action="../backend/auth/register.php" method="POST">
+                <div class="right-div">
+                    <h2 class="russian-violet">Create an Account</h2>
+                    <div id="iconDiv">
+                        <div class="icons"><i class="fa-brands fa-facebook-f" style="color: #2f2f4f;"></i></div>
+                        <div class="icons"><i class="fa-brands fa-google-plus-g" style="color: #2f2f4f;"></i></div>
+                        <div class="icons"><i class="fa-brands fa-linkedin-in" style="color: #2f2f4f;"></i></div>
+                    </div>
+                    <div class="input-div">
+                        <label class="russian-violet" for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="input-div">
+                        <label class="russian-violet" for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-div">
+                        <label class="russian-violet" for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" id="register-btn" class="register-btn">Register</button>
+                    <p class="register-prompt">Already have an account? <a href="login.html">Login here</a></p>
+                </div>
             </form>
         </div>
     </div>
+
+    <script src="../frontend/js/register.js"></script>
 </body>
 
 </html>

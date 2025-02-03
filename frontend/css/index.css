@@ -5,33 +5,40 @@
     box-sizing: border-box;
 }
 
+html 
+{
+    scroll-behavior: smooth;
+}
+
 body 
 {
     font-family: 'Montserrat', sans-serif;
     background-color: #f4f4f4;
 }
 
+.wine-berry 
+{
+    color: rgb(75, 24, 58);
+}
+
+.wewak 
+{
+    color: rgb(242, 165, 173);
+}
+
+.container, .container-two 
+{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 100vw;
+}
+
 .container 
 {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 90%;
     height: 10vh;
-    margin: 0 auto;
-    max-width: 1200px;
-}
-
-.container-two
-{
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1200px;
-}
-
-h1, h2, h3 
-{
-    font-weight: 600;
 }
 
 header 
@@ -40,48 +47,99 @@ header
     padding: 20px 0;
 }
 
-header .container 
+.logo 
 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    color: rgb(75, 24, 58);
+    font-size: 2.5rem;
+    font-weight: bold;
 }
 
-header .logo 
-{
-    color: rgb(179, 63, 98);
-    font-size: 2rem;
-}
-
-header nav ul 
+nav ul 
 {
     display: flex;
     gap: 20px;
-}
-
-header nav ul li 
-{
     list-style: none;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-header nav ul li a 
+nav ul li a 
 {
-    color: rgb(12, 10, 62);
     text-decoration: none;
-    font-weight: 400;
+    color: rgb(75, 24, 58);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
 }
 
-header nav ul li a:hover 
+nav ul li a:hover 
 {
-    text-decoration: underline;
+    color: rgb(207, 4, 99);
+}
+
+nav ul li a::after 
+{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(207, 4, 99);
+    position: absolute;
+    left: 0;
+    bottom: -1rem;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after 
+{
+    transform: scaleX(1);
+}
+
+.centered-grid-div 
+{
+    margin: 3rem 0;
+    display: grid;
+    place-items: center;
+    height: 90vh;
+}
+
+.centered-grid-div h2 
+{
+    color: rgb(75, 24, 58);
+    font-size: 2rem;
+    margin: 1.5rem 0;
+}
+
+/* Grid for Images */
+
+.grid-container 
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 80vw;
+    justify-content: center;
+    margin-bottom: 40px; /* Space between images and feature cards */
+}
+
+.grid-item img 
+{
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    object-fit: cover;
+    border-radius: 0.5rem;
 }
 
 /* Hero Section */
 
 .hero 
 {
-    background: url('https://via.placeholder.com/1500x700') no-repeat center center/cover;
-    color: white;
+    background-color: rgb(75, 24, 58);
+    color: rgb(242, 165, 173);
     padding: 100px 0;
     text-align: center;
 }
@@ -98,170 +156,89 @@ header nav ul li a:hover
     margin-bottom: 40px;
 }
 
-.hero .cta-btn 
+.start-btn 
 {
     padding: 10px 30px;
-    background-color: rgb(179, 63, 98);
-    color: white;
-    text-decoration: none;
+    background-color: rgb(242, 165, 173);
+    color: rgb(75, 24, 58);
     font-weight: 600;
+    text-decoration: none;
+    transition: 0.75s ease;
     border-radius: 0.5rem;
-    transition: 0.5s ease;
 }
 
-.hero .cta-btn:hover 
+.start-btn:hover 
 {
-    background-color: #741b38;
+    background-color: rgb(179, 63, 98);
 }
-
-/* Features Section */
 
 .features 
 {
     background-color: #fff;
     padding: 60px 0;
+    text-align: center;
 }
 
 .features h2 
 {
-    text-align: center;
     margin-bottom: 40px;
+    color: rgb(75, 24, 58);
 }
 
 .feature-cards 
 {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     justify-content: center;
+    margin-top: 40px; 
 }
 
 .feature-card 
 {
-    background-color: #fafafa;
-    padding: 20px;
+    background-color: rgb(75, 24, 58);
+    color: rgb(242, 165, 173);
+    padding: 40px;
     border-radius: 10px;
-    width: 30%;
     text-align: center;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card h3 
 {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+    font-size: larger;
 }
 
 .feature-card p 
 {
-    color: rgb(12, 10, 62);
+    color: rgb(242, 165, 173);
 }
 
-
-
-
-
-
-
-/* Osnovni stilovi za galeriju */
-
-.trip-gallery 
+.feature-card:hover 
 {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-    background: white;
+    transform: scale(1.05);
 }
-
-.container-three 
-{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.gallery-wrapper 
-{
-    display: flex;
-    width: 200%; 
-}
-
-.gallery 
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 55vh;
-    width: 100%;
-    gap: 1.5vw;
-    animation: slide-left 20s linear infinite;
-}
-
-.gallery-item 
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 18.5vw;
-    height: 50vh;
-    border-radius: 0.5rem;
-}
-
-.gallery-item img 
-{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 0.5rem;
-}
-
-.gallery-item p 
-{
-    position: absolute;
-    font-size: 1.75rem;
-    margin-top: 10px;
-    color: rgb(12, 10, 62);
-    font-weight: bold;
-}
-
-/* Ključna animacija */
-@keyframes slide-left 
-{
-    from 
-    {
-        transform: translateX(0);
-    }
-    to 
-    {
-        transform: translateX(-50%);
-    }
-}
-
-
-
-
-
-
-
-/* Newsletter Section */
 
 .newsletter 
 {
-    background-color: #b33f62; 
-    color: rgb(12, 10, 62);
-    padding: 60px 0; 
+    background-color: rgb(75, 24, 58); /* Wine berry pozadina */
+    color: rgb(242, 165, 173); /* Wewak za tekst */
+    padding: 60px 0;
     text-align: center;
-    width: 100%; 
-    margin: 0 auto; 
+    width: 100%;
 }
 
 .newsletter h2 
 {
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
     margin-bottom: 15px;
     font-weight: 600;
+    color: rgb(242, 165, 173); 
 }
 
 .newsletter p 
@@ -269,14 +246,15 @@ header nav ul li a:hover
     font-size: 1.25rem;
     margin-bottom: 25px;
     line-height: 1.5;
+    color: rgb(242, 165, 173); 
 }
 
 .newsletter form 
 {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    gap: 1.5rem; 
+    align-items: center;
+    gap: 1.5rem;
     width: 100%;
 }
 
@@ -284,51 +262,53 @@ header nav ul li a:hover
 {
     padding: 15px;
     font-size: 1rem;
-    border: 1px solid #ddd; 
+    border: 1px solid #ddd;
     border-radius: 0.5rem;
-    width: 100%; 
-    max-width: 400px; 
-    box-sizing: border-box; 
-    transition: border-color 0.25s ease, box-shadow 0.25s ease; 
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.newsletter input:focus {
+.newsletter input:focus 
+{
     outline: none;
-    border-color: #fff; 
-    box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0.1); 
+    border-color: #fff;
+    box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0.1);
 }
 
 .newsletter button 
 {
     padding: 12px 30px;
     background-color: #fff;
-    color: rgb(12, 10, 62);
+    color: rgb(75, 24, 58);
     font-weight: bold;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.25s ease, transform 0.25s ease;
-    max-width: 400px; 
+    max-width: 400px;
 }
 
 .newsletter button:hover 
 {
-    background-color: #f1f1f1; 
-    transform: translateY(-5px); 
+    background-color: rgb(242, 165, 173); 
+    transform: translateY(-5px);
 }
 
 .newsletter button:active 
 {
-    transform: translateY(1px); /* Povratak dugmeta pri kliku */
+    transform: translateY(1px);
 }
-
-/* Footer */
 
 footer 
 {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #1a1a1a;
-    color: #fff;
+    color: rgb(242, 165, 173);
     padding: 20px 0;
-    text-align: center;
 }

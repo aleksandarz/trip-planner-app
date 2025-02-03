@@ -22,41 +22,77 @@ body
     height: 65vh;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 0 25px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 40px 40px rgba(0, 0, 0, 0.1);
+}
+
+.russian-violet 
+{
+    color: #2f2f4f;
 }
 
 .left 
 {
-    background-color: #b33f62; /* Roza boja (Wanderlog slična) */
+    background-image: linear-gradient(to right, #b33f62, #b33fb3);
     color: white;
-    width: 33.33%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
 }
 
 .left h2 
 {
-    font-size: 2rem;
     text-align: center;
 }
 
 .right 
 {
-    width: 66.66%;
+    width: 60%;
     padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+.right-div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-div
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#iconDiv
+{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.icons
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+}
+
 .right h2 
 {
     font-size: 1.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
@@ -68,48 +104,49 @@ body
 
 .right input 
 {
-    padding: 12px;
-    margin-bottom: 15px;
+    padding: 0.65rem;
+    margin-bottom: 1rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     font-size: 1rem;
-    width: 100%;
+    width: 25rem;
 }
 
 .right input:focus 
 {
-    border-color: #b33f62; /* Roza boja pri fokusu */
+    border-color: #b33f62;
     outline: none;
 }
 
 .login-btn 
 {
-    padding: 12px;
-    background-color: #b33f62; /* Roza boja */
+    padding: 0.65rem;
+    background-color: #b33f62; 
     color: white;
     font-size: 1rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
     cursor: pointer;
-    width: 100%;
+    width: 25rem;
     transition: 0.75s ease;
 }
 
 .login-btn:hover 
 {
-    background-color: #7b1738; /* Tamnija roza pri hover-u */
+    background-color: #7b1738; 
 }
 
 .login-btn:active 
 {
-    background-color: #520a21; /* Još tamnija roza pri kliku */
+    background-color: #520a21; 
 }
 
 .register-prompt 
 {
     text-align: center;
-    margin-top: 15px;
-    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-size: 14px;
 }
 
 .register-prompt a 
