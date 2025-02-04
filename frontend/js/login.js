@@ -4,10 +4,10 @@ const form = document.querySelector("form");
 loginBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;
 
-    if (!username || !email) {
+    if (!email || !password) {
         alert("Please fill out all fields.");
         return;
     }

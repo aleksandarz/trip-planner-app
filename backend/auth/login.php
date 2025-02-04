@@ -1,6 +1,6 @@
 <?php
     // Inicijalizacija konekcije na bazu koristeći mysqli
-    require_once __DIR__ . "../config/conn.php"; 
+    require_once __DIR__ . "/../config/conn.php"; 
 
     // Provera da li je zahtev poslat POST metodom
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') 
@@ -60,7 +60,7 @@
     } 
     else 
     {
-        echo "Pogrešan email ili lozinka.";
+        echo "Korisnik sa tim email-om ne postoji.";
     }
 
     // Zatvori pripremljenu izjavu

@@ -97,43 +97,6 @@ nav ul li a:hover::after
     transform: scaleX(1);
 }
 
-.centered-grid-div 
-{
-    margin: 3rem 0;
-    display: grid;
-    place-items: center;
-    height: 90vh;
-}
-
-.centered-grid-div h2 
-{
-    color: rgb(75, 24, 58);
-    font-size: 2rem;
-    margin: 1.5rem 0;
-}
-
-/* Grid for Images */
-
-.grid-container 
-{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    width: 80vw;
-    justify-content: center;
-    margin-bottom: 40px; /* Space between images and feature cards */
-}
-
-.grid-item img 
-{
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    object-fit: cover;
-    border-radius: 0.5rem;
-}
-
 /* Hero Section */
 
 .hero 

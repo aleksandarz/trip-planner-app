@@ -1,0 +1,96 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html 
+{
+    scroll-behavior: smooth;
+}
+
+body 
+{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container 
+{
+    width: 35vw;
+    height: 70vh;
+    background-image: linear-gradient(to right, #b33f62, #b33fb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 40px 40px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+#contact-form h1 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    transition: font-size 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.form-group 
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form-group label 
+{
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.form-group input,
+.form-group textarea 
+{
+    width: 27.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-group textarea 
+{
+    height: 10rem;
+    resize: none;
+}
+
+#btnSend 
+{
+    width: 27.5rem;
+    height: 2.5rem;
+    background-color: white;
+    color: #b33f62;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#btnSend:hover 
+{
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}

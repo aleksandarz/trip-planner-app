@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
             })
                 .then((response) => response.text()) // Dobijamo odgovor kao plain text
                 .then((data) => {
-                    console.log("PHP Response:", data); // Prikazujemo odgovor u konzoli
+                    //console.log("PHP Response:", data); // Prikazujemo odgovor u konzoli
 
                     if (data.trim() === "success") {
-                        window.location.href = "../frontend/index.html"; // Ako je uspešno, preusmeravamo
+                        window.location.href = "/../frontend/main.html"; // Ako je uspešno, preusmeravamo
                     } else {
                         alert(data); // Ako nije, prikaži poruku iz PHP-a
                     }

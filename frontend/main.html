@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Dashboard</title>
+    <link rel="stylesheet" href="../frontend/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Putovanja</h1>
+            <nav>
+                <ul>
+                    <li><a href="#create">Napravi</a></li>
+                    <li><a href="#view">Pregledaj</a></li>
+                    <li><a href="#update">Ažuriraj</a></li>
+                    <li><a href="#delete">Obriši</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Dobrodošli u Travel Dashboard</h2>
+        <p>Upravljajte svojim putovanjima lako i brzo.</p>
+    </section>
+
+    <section class="features">
+        <div class="container feature-cards">
+            <div class="feature-card" id="create">
+                <h3>Napravi Putovanje</h3>
+                <p>Dodajte novo putovanje i organizujte detalje.</p>
+                <button onclick="createTrip()">Kreiraj</button>
+            </div>
+            <div class="feature-card" id="view">
+                <h3>Pregledaj Putovanja</h3>
+                <p>Pogledajte listu svih dostupnih putovanja.</p>
+                <button onclick="viewTrips()">Pregledaj</button>
+            </div>
+            <div class="feature-card" id="update">
+                <h3>Ažuriraj Putovanje</h3>
+                <p>Izmenite informacije o postojećem putovanju.</p>
+                <button onclick="updateTrip()">Ažuriraj</button>
+            </div>
+            <div class="feature-card" id="delete">
+                <h3>Obriši Putovanje</h3>
+                <p>Uklonite putovanje sa liste.</p>
+                <button onclick="deleteTrip()">Obriši</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 TripMate. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
